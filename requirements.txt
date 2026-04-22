@@ -1,0 +1,7 @@
+streamlit
+networkx
+pandas
+lxml
+graphviz
+pyvis
+yfiles_graphs_for_streamlit
