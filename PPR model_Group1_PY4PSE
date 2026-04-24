@@ -1,0 +1,358 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<CAEXFile xmlns="http://www.dke.de/CAEX" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" SchemaVersion="3.0" FileName="PPR_Model_2026-04-14.aml" xsi:schemaLocation="http://www.dke.de/CAEX CAEX_ClassModel_V.3.0.xsd">
+  <SuperiorStandardVersion>AutomationML 2.10</SuperiorStandardVersion>
+  <SourceDocumentInformation OriginName="PPR Modeling Tool" LastWritingDateTime="2026-04-14T12:00:00+02:00"/>
+  <RoleClassLib Name="PPRRoles" ID="c0c6a098-563f-475b-afa0-a7b8048c1c18">
+    <Version>1.0.0</Version>
+    <RoleClass Name="Product" ID="49185ab5-ecc4-45a6-90f6-873429229355">
+      <Version>1.0.0</Version>
+    </RoleClass>
+    <RoleClass Name="Process" ID="2e8b7b81-61e9-41c7-8906-96661d368f7f">
+      <Version>1.0.0</Version>
+    </RoleClass>
+    <RoleClass Name="Resource" ID="a1979ffd-e4f1-4c4d-85a8-50a23beb7395">
+      <Version>1.0.0</Version>
+    </RoleClass>
+  </RoleClassLib>
+  <InstanceHierarchy Name="PPR_Model">
+    <Version>2.0.0</Version>
+    <InternalElement Name="Product" ID="CAT_PRODUCT">
+      <RoleRequirements RefBaseRoleClassPath="PPRRoles/Product"/>
+      <Attribute Name="Role" AttributeDataType="xs:string">
+        <Value>Product</Value>
+      </Attribute>
+      <InternalElement Name="Vehicle" ID="P0">
+        <RoleRequirements RefBaseRoleClassPath="PPRRoles/Product"/>
+        <Attribute Name="Color" AttributeDataType="xs:string">
+          <Value>Red</Value>
+        </Attribute>
+        <Attribute Name="Type" AttributeDataType="xs:string">
+          <Value>Small City Vehicle</Value>
+        </Attribute>
+        <Attribute Name="WheelRequirement" AttributeDataType="xs:string">
+          <Value>3</Value>
+        </Attribute>
+      </InternalElement>
+      <InternalElement Name="Chassis" ID="P1">
+        <RoleRequirements RefBaseRoleClassPath="PPRRoles/Product"/>
+        <Attribute Name="Material" AttributeDataType="xs:string">
+          <Value>Lego Plastic</Value>
+        </Attribute>
+      </InternalElement>
+      <InternalElement Name="FrontWheel" ID="P2">
+        <RoleRequirements RefBaseRoleClassPath="PPRRoles/Product"/>
+        <Attribute Name="Position" AttributeDataType="xs:string">
+          <Value>Front</Value>
+        </Attribute>
+      </InternalElement>
+      <InternalElement Name="RearLeftWheel" ID="P3">
+        <RoleRequirements RefBaseRoleClassPath="PPRRoles/Product"/>
+        <Attribute Name="Position" AttributeDataType="xs:string">
+          <Value>RearLeft</Value>
+        </Attribute>
+      </InternalElement>
+      <InternalElement Name="RearRightWheel" ID="P4">
+        <RoleRequirements RefBaseRoleClassPath="PPRRoles/Product"/>
+        <Attribute Name="Position" AttributeDataType="xs:string">
+          <Value>RearRight</Value>
+        </Attribute>
+      </InternalElement>
+      <InternalElement Name="FrontAxle" ID="P5">
+        <RoleRequirements RefBaseRoleClassPath="PPRRoles/Product"/>
+        <Attribute Name="Type" AttributeDataType="xs:string">
+          <Value>Small</Value>
+        </Attribute>
+      </InternalElement>
+      <InternalElement Name="RearAxle" ID="P6">
+        <RoleRequirements RefBaseRoleClassPath="PPRRoles/Product"/>
+        <Attribute Name="Type" AttributeDataType="xs:string">
+          <Value>Small</Value>
+        </Attribute>
+      </InternalElement>
+      <InternalElement Name="Load" ID="P7">
+        <RoleRequirements RefBaseRoleClassPath="PPRRoles/Product"/>
+        <Attribute Name="Amount" AttributeDataType="xs:string">
+          <Value>2</Value>
+        </Attribute>
+        <Attribute Name="Type" AttributeDataType="xs:string">
+          <Value>Small Black Parts</Value>
+        </Attribute>
+      </InternalElement>
+    </InternalElement>
+    <InternalElement Name="Process" ID="CAT_PROCESS">
+      <RoleRequirements RefBaseRoleClassPath="PPRRoles/Process"/>
+      <Attribute Name="Role" AttributeDataType="xs:string">
+        <Value>Process</Value>
+      </Attribute>
+      <InternalElement Name="Step1_AddChassis" ID="PR1">
+        <RoleRequirements RefBaseRoleClassPath="PPRRoles/Process"/>
+        <Attribute Name="Sequence" AttributeDataType="xs:string">
+          <Value>1</Value>
+        </Attribute>
+        <Attribute Name="WorksOn" AttributeDataType="xs:string">
+          <Value>Chassis</Value>
+        </Attribute>
+        <Attribute Name="Uses" AttributeDataType="xs:string">
+          <Value>AssemblyStation</Value>
+        </Attribute>
+        <Attribute Name="eng_cost" AttributeDataType="xs:string">
+          <Value>10</Value>
+        </Attribute>
+        <Attribute Name="eng_oee" AttributeDataType="xs:string">
+          <Value>0.95</Value>
+        </Attribute>
+        <Attribute Name="qual_threshold" AttributeDataType="xs:string">
+          <Value>0.98</Value>
+        </Attribute>
+        <Attribute Name="sus_energy" AttributeDataType="xs:string">
+          <Value>2.0</Value>
+        </Attribute>
+        <Attribute Name="rel_mtbf" AttributeDataType="xs:string">
+          <Value>300</Value>
+        </Attribute>
+      </InternalElement>
+      <InternalElement Name="Step2_AddAxles" ID="PR2">
+        <RoleRequirements RefBaseRoleClassPath="PPRRoles/Process"/>
+        <Attribute Name="Sequence" AttributeDataType="xs:string">
+          <Value>2</Value>
+        </Attribute>
+        <Attribute Name="WorksOn" AttributeDataType="xs:string">
+          <Value>FrontAxle,RearAxle</Value>
+        </Attribute>
+        <Attribute Name="Uses" AttributeDataType="xs:string">
+          <Value>AxleTool</Value>
+        </Attribute>
+        <Attribute Name="eng_cost" AttributeDataType="xs:string">
+          <Value>12</Value>
+        </Attribute>
+        <Attribute Name="eng_oee" AttributeDataType="xs:string">
+          <Value>0.93</Value>
+        </Attribute>
+        <Attribute Name="qual_threshold" AttributeDataType="xs:string">
+          <Value>0.97</Value>
+        </Attribute>
+        <Attribute Name="sus_energy" AttributeDataType="xs:string">
+          <Value>2.5</Value>
+        </Attribute>
+        <Attribute Name="rel_mtbf" AttributeDataType="xs:string">
+          <Value>250</Value>
+        </Attribute>
+      </InternalElement>
+      <InternalElement Name="Step3_AddFrontWheel" ID="PR3">
+        <RoleRequirements RefBaseRoleClassPath="PPRRoles/Process"/>
+        <Attribute Name="Sequence" AttributeDataType="xs:string">
+          <Value>3</Value>
+        </Attribute>
+        <Attribute Name="WorksOn" AttributeDataType="xs:string">
+          <Value>FrontWheel</Value>
+        </Attribute>
+        <Attribute Name="Uses" AttributeDataType="xs:string">
+          <Value>WheelTool</Value>
+        </Attribute>
+        <Attribute Name="eng_cost" AttributeDataType="xs:string">
+          <Value>8</Value>
+        </Attribute>
+        <Attribute Name="eng_oee" AttributeDataType="xs:string">
+          <Value>0.94</Value>
+        </Attribute>
+        <Attribute Name="qual_threshold" AttributeDataType="xs:string">
+          <Value>0.99</Value>
+        </Attribute>
+        <Attribute Name="sus_energy" AttributeDataType="xs:string">
+          <Value>1.5</Value>
+        </Attribute>
+        <Attribute Name="rel_mtbf" AttributeDataType="xs:string">
+          <Value>260</Value>
+        </Attribute>
+      </InternalElement>
+      <InternalElement Name="Step4_AddRearWheels" ID="PR4">
+        <RoleRequirements RefBaseRoleClassPath="PPRRoles/Process"/>
+        <Attribute Name="Sequence" AttributeDataType="xs:string">
+          <Value>4</Value>
+        </Attribute>
+        <Attribute Name="WorksOn" AttributeDataType="xs:string">
+          <Value>RearLeftWheel,RearRightWheel</Value>
+        </Attribute>
+        <Attribute Name="Uses" AttributeDataType="xs:string">
+          <Value>WheelTool</Value>
+        </Attribute>
+        <Attribute Name="eng_cost" AttributeDataType="xs:string">
+          <Value>14</Value>
+        </Attribute>
+        <Attribute Name="eng_oee" AttributeDataType="xs:string">
+          <Value>0.92</Value>
+        </Attribute>
+        <Attribute Name="qual_threshold" AttributeDataType="xs:string">
+          <Value>0.99</Value>
+        </Attribute>
+        <Attribute Name="sus_energy" AttributeDataType="xs:string">
+          <Value>2.2</Value>
+        </Attribute>
+        <Attribute Name="rel_mtbf" AttributeDataType="xs:string">
+          <Value>240</Value>
+        </Attribute>
+      </InternalElement>
+      <InternalElement Name="Step5_AddLoad" ID="PR5">
+        <RoleRequirements RefBaseRoleClassPath="PPRRoles/Process"/>
+        <Attribute Name="Sequence" AttributeDataType="xs:string">
+          <Value>5</Value>
+        </Attribute>
+        <Attribute Name="WorksOn" AttributeDataType="xs:string">
+          <Value>Load</Value>
+        </Attribute>
+        <Attribute Name="Uses" AttributeDataType="xs:string">
+          <Value>LoadingTool</Value>
+        </Attribute>
+        <Attribute Name="eng_cost" AttributeDataType="xs:string">
+          <Value>6</Value>
+        </Attribute>
+        <Attribute Name="eng_oee" AttributeDataType="xs:string">
+          <Value>0.96</Value>
+        </Attribute>
+        <Attribute Name="qual_threshold" AttributeDataType="xs:string">
+          <Value>0.95</Value>
+        </Attribute>
+        <Attribute Name="sus_energy" AttributeDataType="xs:string">
+          <Value>1.0</Value>
+        </Attribute>
+        <Attribute Name="rel_mtbf" AttributeDataType="xs:string">
+          <Value>280</Value>
+        </Attribute>
+      </InternalElement>
+      <InternalElement Name="Step6_FinalAssembly" ID="PR6">
+        <RoleRequirements RefBaseRoleClassPath="PPRRoles/Process"/>
+        <Attribute Name="Sequence" AttributeDataType="xs:string">
+          <Value>6</Value>
+        </Attribute>
+        <Attribute Name="WorksOn" AttributeDataType="xs:string">
+          <Value>Vehicle</Value>
+        </Attribute>
+        <Attribute Name="Uses" AttributeDataType="xs:string">
+          <Value>AssemblyStation</Value>
+        </Attribute>
+        <Attribute Name="eng_cost" AttributeDataType="xs:string">
+          <Value>15</Value>
+        </Attribute>
+        <Attribute Name="eng_oee" AttributeDataType="xs:string">
+          <Value>0.91</Value>
+        </Attribute>
+        <Attribute Name="qual_threshold" AttributeDataType="xs:string">
+          <Value>0.97</Value>
+        </Attribute>
+        <Attribute Name="sus_energy" AttributeDataType="xs:string">
+          <Value>3.0</Value>
+        </Attribute>
+        <Attribute Name="rel_mtbf" AttributeDataType="xs:string">
+          <Value>220</Value>
+        </Attribute>
+      </InternalElement>
+      <InternalElement Name="Step7_QualityCheck" ID="PR7">
+        <RoleRequirements RefBaseRoleClassPath="PPRRoles/Process"/>
+        <Attribute Name="Sequence" AttributeDataType="xs:string">
+          <Value>7</Value>
+        </Attribute>
+        <Attribute Name="WorksOn" AttributeDataType="xs:string">
+          <Value>Vehicle</Value>
+        </Attribute>
+        <Attribute Name="Uses" AttributeDataType="xs:string">
+          <Value>InspectionBench</Value>
+        </Attribute>
+        <Attribute Name="eng_cost" AttributeDataType="xs:string">
+          <Value>5</Value>
+        </Attribute>
+        <Attribute Name="eng_oee" AttributeDataType="xs:string">
+          <Value>0.98</Value>
+        </Attribute>
+        <Attribute Name="qual_threshold" AttributeDataType="xs:string">
+          <Value>1.00</Value>
+        </Attribute>
+        <Attribute Name="sus_energy" AttributeDataType="xs:string">
+          <Value>0.5</Value>
+        </Attribute>
+        <Attribute Name="rel_mtbf" AttributeDataType="xs:string">
+          <Value>400</Value>
+        </Attribute>
+      </InternalElement>
+    </InternalElement>
+    <InternalElement Name="Resource" ID="CAT_RESOURCE">
+      <RoleRequirements RefBaseRoleClassPath="PPRRoles/Resource"/>
+      <Attribute Name="Role" AttributeDataType="xs:string">
+        <Value>Resource</Value>
+      </Attribute>
+      <InternalElement Name="AssemblyStation" ID="R1">
+        <RoleRequirements RefBaseRoleClassPath="PPRRoles/Resource"/>
+        <Attribute Name="Category" AttributeDataType="xs:string">
+          <Value>Station</Value>
+        </Attribute>
+      </InternalElement>
+      <InternalElement Name="AxleTool" ID="R2">
+        <RoleRequirements RefBaseRoleClassPath="PPRRoles/Resource"/>
+        <Attribute Name="Category" AttributeDataType="xs:string">
+          <Value>Tool</Value>
+        </Attribute>
+      </InternalElement>
+      <InternalElement Name="WheelTool" ID="R3">
+        <RoleRequirements RefBaseRoleClassPath="PPRRoles/Resource"/>
+        <Attribute Name="Category" AttributeDataType="xs:string">
+          <Value>Tool</Value>
+        </Attribute>
+      </InternalElement>
+      <InternalElement Name="LoadingTool" ID="R4">
+        <RoleRequirements RefBaseRoleClassPath="PPRRoles/Resource"/>
+        <Attribute Name="Category" AttributeDataType="xs:string">
+          <Value>Tool</Value>
+        </Attribute>
+      </InternalElement>
+      <InternalElement Name="InspectionBench" ID="R5">
+        <RoleRequirements RefBaseRoleClassPath="PPRRoles/Resource"/>
+        <Attribute Name="Category" AttributeDataType="xs:string">
+          <Value>Station</Value>
+        </Attribute>
+      </InternalElement>
+      <InternalElement Name="Operator" ID="R6">
+        <RoleRequirements RefBaseRoleClassPath="PPRRoles/Resource"/>
+        <Attribute Name="Category" AttributeDataType="xs:string">
+          <Value>Human</Value>
+        </Attribute>
+      </InternalElement>
+    </InternalElement>
+    <InternalLink Name="part_of" RefPartnerSideA="P1" RefPartnerSideB="P0"/>
+    <InternalLink Name="part_of" RefPartnerSideA="P2" RefPartnerSideB="P0"/>
+    <InternalLink Name="part_of" RefPartnerSideA="P3" RefPartnerSideB="P0"/>
+    <InternalLink Name="part_of" RefPartnerSideA="P4" RefPartnerSideB="P0"/>
+    <InternalLink Name="part_of" RefPartnerSideA="P5" RefPartnerSideB="P0"/>
+    <InternalLink Name="part_of" RefPartnerSideA="P6" RefPartnerSideB="P0"/>
+    <InternalLink Name="part_of" RefPartnerSideA="P7" RefPartnerSideB="P0"/>
+    <InternalLink Name="creates" RefPartnerSideA="PR1" RefPartnerSideB="P1"/>
+    <InternalLink Name="creates" RefPartnerSideA="PR2" RefPartnerSideB="P5"/>
+    <InternalLink Name="creates" RefPartnerSideA="PR2" RefPartnerSideB="P6"/>
+    <InternalLink Name="installs" RefPartnerSideA="PR3" RefPartnerSideB="P2"/>
+    <InternalLink Name="installs" RefPartnerSideA="PR4" RefPartnerSideB="P3"/>
+    <InternalLink Name="installs" RefPartnerSideA="PR4" RefPartnerSideB="P4"/>
+    <InternalLink Name="installs" RefPartnerSideA="PR5" RefPartnerSideB="P7"/>
+    <InternalLink Name="assembles" RefPartnerSideA="PR6" RefPartnerSideB="P0"/>
+    <InternalLink Name="verifies" RefPartnerSideA="PR7" RefPartnerSideB="P0"/>
+    <InternalLink Name="supports" RefPartnerSideA="R1" RefPartnerSideB="PR1"/>
+    <InternalLink Name="used_in" RefPartnerSideA="R2" RefPartnerSideB="PR2"/>
+    <InternalLink Name="used_in" RefPartnerSideA="R3" RefPartnerSideB="PR3"/>
+    <InternalLink Name="used_in" RefPartnerSideA="R3" RefPartnerSideB="PR4"/>
+    <InternalLink Name="used_in" RefPartnerSideA="R4" RefPartnerSideB="PR5"/>
+    <InternalLink Name="hosts" RefPartnerSideA="R1" RefPartnerSideB="PR6"/>
+    <InternalLink Name="supports" RefPartnerSideA="R5" RefPartnerSideB="PR7"/>
+    <InternalLink Name="performs" RefPartnerSideA="R6" RefPartnerSideB="PR1"/>
+    <InternalLink Name="performs" RefPartnerSideA="R6" RefPartnerSideB="PR2"/>
+    <InternalLink Name="performs" RefPartnerSideA="R6" RefPartnerSideB="PR3"/>
+    <InternalLink Name="performs" RefPartnerSideA="R6" RefPartnerSideB="PR4"/>
+    <InternalLink Name="performs" RefPartnerSideA="R6" RefPartnerSideB="PR5"/>
+    <InternalLink Name="performs" RefPartnerSideA="R6" RefPartnerSideB="PR6"/>
+    <InternalLink Name="performs" RefPartnerSideA="R6" RefPartnerSideB="PR7"/>
+    <InternalLink Name="precedes" RefPartnerSideA="PR1" RefPartnerSideB="PR2"/>
+    <InternalLink Name="precedes" RefPartnerSideA="PR2" RefPartnerSideB="PR3"/>
+    <InternalLink Name="precedes" RefPartnerSideA="PR3" RefPartnerSideB="PR4"/>
+    <InternalLink Name="precedes" RefPartnerSideA="PR4" RefPartnerSideB="PR5"/>
+    <InternalLink Name="precedes" RefPartnerSideA="PR5" RefPartnerSideB="PR6"/>
+    <InternalLink Name="precedes" RefPartnerSideA="PR6" RefPartnerSideB="PR7"/>
+    <InternalLink Name="influences_quality" RefPartnerSideA="PR3" RefPartnerSideB="PR7"/>
+    <InternalLink Name="influences_quality" RefPartnerSideA="PR4" RefPartnerSideB="PR7"/>
+  </InstanceHierarchy>
+</CAEXFile>
